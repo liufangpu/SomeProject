@@ -1,0 +1,441 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>nice.liufangpu.project</groupId>
+  <artifactId>SomeProject</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>SomeProject Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <env>dev</env>
+    <!-- spring版本号 -->
+    <spring.version>4.0.3.RELEASE</spring.version>
+    <!-- mybatis版本号 -->
+    <mybatis.version>3.2.6</mybatis.version>
+    <!-- log4j日志文件管理包版本 -->
+    <slf4j.version>1.7.7</slf4j.version>
+    <log4j.version>1.2.17</log4j.version>
+    <shiro.version>1.2.1</shiro.version>
+    <commons-fileupload.version>1.3.1</commons-fileupload.version>
+    <commons-lang3.version>3.1</commons-lang3.version>
+    <commons-dbcp.version>1.4</commons-dbcp.version>
+    <commons-codec.version>1.7</commons-codec.version>
+    <elasticsearch.version>5.4.1</elasticsearch.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencies>
+
+
+    <dependency>
+      <groupId>org.apache.directory.studio</groupId>
+      <artifactId>org.apache.commons.codec</artifactId>
+      <version>1.8</version>
+    </dependency>
+
+
+    <!-- 邮件需要的jar包-->
+    <!--<dependency>
+      <groupId>com.sun.mail</groupId>
+      <artifactId>javax.mail</artifactId>
+      <version>1.5.0</version>
+    </dependency>-->
+    <!-- 导入dbcp的jar包，用来在applicationContext.xml中配置数据库 -->
+    <dependency>
+      <groupId>commons-dbcp</groupId>
+      <artifactId>commons-dbcp</artifactId>
+      <version>1.2.2</version>
+    </dependency>
+    <!-- 导入java ee jar 包 -->
+    <!--<dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>7.0</version>
+    </dependency>-->
+    <!--<dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${commons-lang3.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>${commons-codec.version}</version>
+    </dependency>-->
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>${commons-fileupload.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+    <!--<dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.8.10</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjrt</artifactId>
+      <version>1.8.9</version>
+    </dependency>-->
+
+    <!-- spring核心包 -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-oxm</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-tx</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aop</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aspects</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${spring.version}</version>
+
+    </dependency>
+    <!-- mybatis核心包 -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>${mybatis.version}</version>
+    </dependency>
+    <!-- mybatis/spring包 -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis-spring</artifactId>
+      <version>1.2.2</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- 导入mybatis包 -->
+
+    <!-- 导入Mysql数据库链接jar包 -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.30</version>
+    </dependency>
+    <!-- json数据 -->
+    <!-- <dependency>
+       <groupId>org.codehaus.jackson</groupId>
+       <artifactId>jackson-core-asl</artifactId>
+       <version>1.9.13</version>
+     </dependency>
+     <dependency>
+       <groupId>org.codehaus.jackson</groupId>
+       <artifactId>jackson-mapper-asl</artifactId>
+       <version>1.9.13</version>
+     </dependency>-->
+
+    <!-- JSTL标签类 -->
+    <!--<dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>-->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.5</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jsp-api</artifactId>
+      <version>2.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+    <!-- optional datasource pool -->
+    <dependency>
+      <groupId>commons-dbcp</groupId>
+      <artifactId>commons-dbcp</artifactId>
+      <version>${commons-dbcp.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+
+    <!-- 日志文件管理包 -->
+    <!-- log start -->
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+    <!-- log end -->
+    <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.33</version>
+    </dependency>
+    <!--此包可以将字符串包起来的java代码执行 -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-jexl</artifactId>
+      <version>2.0</version>
+    </dependency>
+
+    <!--shiro -->
+    <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-core</artifactId>
+      <version>${shiro.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-web</artifactId>
+      <version>${shiro.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-ehcache</artifactId>
+      <version>${shiro.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>net.sf.ehcache</groupId>
+      <artifactId>ehcache</artifactId>
+      <version>2.10.2.2.21</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-spring</artifactId>
+      <version>${shiro.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch -->
+    <!--<dependency>
+      <groupId>org.elasticsearch</groupId>
+      <artifactId>elasticsearch</artifactId>
+      <version>${elasticsearch.version}</version>
+    </dependency>-->
+    <!--<dependency>
+      <groupId>org.elasticsearch</groupId>
+      <artifactId>elasticsearch</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>fr.pilato.spring</groupId>
+      <artifactId>spring-elasticsearch</artifactId>
+      <version>1.0.0</version>
+    </dependency>-->
+    <dependency>
+      <groupId>org.elasticsearch.client</groupId>
+      <artifactId>transport</artifactId>
+      <version>5.4.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>2.8.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>2.8.2</version>
+    </dependency>
+
+  </dependencies>
+  <build>
+    <finalName>SomeProject</finalName>
+
+    <filters>
+      <filter>src/main/filters/filter-${env}.properties</filter>
+    </filters>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.9</version>
+        <configuration>
+          <skipTests>true</skipTests>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>maven-jetty-plugin</artifactId>
+        <version>6.1.12.rc5</version>
+        <configuration>
+          <scanIntervalSeconds>5</scanIntervalSeconds>
+          <!--<init-param>
+              <param-name>useFileMappedBuffer</param-name>
+              <param-value>false</param-value>
+          </init-param>-->
+          <connectors>
+            <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+              <port>8080</port>
+              <maxIdleTime>60000</maxIdleTime>
+            </connector>
+          </connectors>
+          <!-- stopkey可以随意填写任何单词-->
+          <stopKey>
+            anyword
+          </stopKey>
+          <stopPort>
+            9966
+          </stopPort>
+          <webAppConfig>
+            <contextPath>/gmtool_tank</contextPath>
+          </webAppConfig>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.4.1</version>
+        <configuration>
+          <encoding>UTF-8</encoding>
+          <nonFilteredFileExtensions>
+            <nonFilteredFileExtension>jks</nonFilteredFileExtension>
+          </nonFilteredFileExtensions>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <archiveClasses>true</archiveClasses>
+          <webResources>
+            <resource>
+              <directory>${project.build.directory}/classes</directory>
+              <targetPath>WEB-INF/classes</targetPath>
+              <filtering>false</filtering>
+              <includes>
+                <include>*.xml</include>
+                <include>*.properties</include>
+              </includes>
+            </resource>
+          </webResources>
+        </configuration>
+      </plugin>
+    </plugins>
+
+  </build>
+
+  <profiles>
+    <profile>
+      <!-- <activation> <activeByDefault>true</activeByDefault> </activation> -->
+      <id>local</id>
+      <properties>
+        <env>local</env>
+      </properties>
+    </profile>
+    <profile>
+      <!--<activation>
+          <activeByDefault>true</activeByDefault>
+      </activation>-->
+      <id>dev</id>
+      <properties>
+        <env>dev</env>
+      </properties>
+    </profile>
+    <profile>
+      <!-- <activation>
+          <activeByDefault>true</activeByDefault>
+      </activation>  -->
+      <id>test</id>
+      <properties>
+        <env>test</env>
+      </properties>
+    </profile>
+    <profile>
+      <!-- <activation> <activeByDefault>true</activeByDefault> </activation> -->
+      <id>product</id>
+      <properties>
+        <env>product</env>
+      </properties>
+    </profile>
+
+  </profiles>
+</project>

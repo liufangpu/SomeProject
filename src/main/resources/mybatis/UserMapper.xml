@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="nice.liufangpu.project.dao.UserMapper">
+    <insert id="saveUser" parameterType="User">
+      INSERT INTO user(id,name,nickname,telephone,region,uid,amount)VALUES (#{id},#{name},#{nickname},#{telephone},#{region},#{uid},#{amount})
+
+    </insert>
+    <!--<select id="findUserByLoginName" resultType="com.taiqigame.tank.datacollection.entity.User">
+      SELECT id,username,password,real_name, login_time,status  FROM  user u WHERE u.username=#{username}
+
+
+    </select>
+    <select id="getRolesByLoginName" resultType="Role">
+        SELECT r.name,r.id FROM user_role ur,user u,role r WHERE username=#{username} AND u.id=ur.user_id AND ur.role_id=r.id
+
+    </select>
+    <select id="getPermissionsByLoginName" resultType="Auth">
+        SELECT p.name,p.id FROM user u,user_role ur,role_permission rp,permission p WHERE username=#{username}
+           AND u.id=ur.user_id AND ur.role_id=rp.role_id AND rp.permission_id=p.id
+    </select>
+
+    <update id="updateLoginTime">
+        UPDATE user SET login_time=now() WHERE username=#{username}
+    </update>
+
+    <select id="getPwdByUsername" resultType="java.lang.String">
+        SELECT password FROM user WHERE username=#{username}
+
+    </select>
+    <update id="updateUserPasswordByUsername">
+        UPDATE user SET password=#{password} WHERE username=#{username}
+    </update>-->
+</mapper>
