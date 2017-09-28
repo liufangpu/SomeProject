@@ -5,6 +5,10 @@
       INSERT INTO user(id,name,nickname,telephone,region,uid,amount)VALUES (#{id},#{name},#{nickname},#{telephone},#{region},#{uid},#{amount})
 
     </insert>
+
+    <update id="updateConfig" parameterType="java.lang.String">
+        UPDATE config SET name=#{value} where description='name'
+    </update>
     <!--<select id="findUserByLoginName" resultType="com.taiqigame.tank.datacollection.entity.User">
       SELECT id,username,password,real_name, login_time,status  FROM  user u WHERE u.username=#{username}
 

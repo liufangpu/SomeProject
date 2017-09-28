@@ -13,6 +13,15 @@ public class User {
     private String region;
     private String ip;
     private String hhId;
+    private Integer accessTimes ;
+
+    public Integer getAccessTimes() {
+        return accessTimes;
+    }
+
+    public void setAccessTimes(Integer accessTimes) {
+        this.accessTimes = accessTimes;
+    }
 
     public String getHhId() {
         return hhId;

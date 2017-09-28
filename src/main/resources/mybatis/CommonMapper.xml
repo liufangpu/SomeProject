@@ -5,10 +5,28 @@
         SELECT name from config WHERE description='name'
     </select>
     <insert id="recordUserInfo" parameterType="User">
-        INSERT INTO user(ip,hh_id)VALUES (#{ip},#{hhId})
+        <if test="hhId != null">
+            INSERT INTO user(ip,hh_id)VALUES (#{ip},#{hhId})
+        </if>
     </insert>
 
     <insert id="recordDeviceInfo" parameterType="DeviceInfo">
-        INSERT INTO  deviceinfo(hh_id,people_id,phone_version,phone_model) VALUES (#{hhId},#{peopleId},#{phoneVersion},#{phoneModel})
+        <if test="hhId != null">
+            INSERT INTO  deviceinfo(hh_id,people_id,phone_version,phone_model) VALUES (#{hhId},#{peopleId},#{phoneVersion},#{phoneModel})
+        </if>
     </insert>
+    <select id="getUserInfo" resultType="User">
+        SELECT * FROM user WHERE hh_id=#{hhId}
+    </select>
+
+    <update id="updateUserInfo" parameterType="User">
+        <if test="hhId != null">
+            UPDATE user SET access_times=#{accessTimes} where hhId=#{hhId}
+        </if>
+    </update>
+    <select id="getDeviceInfo" parameterType="DeviceInfo">
+        <if test="hhId != null">
+            SELECT * FROM deviceinfo WHERE hh_id=#{hhId}
+        </if>
+    </select>
 </mapper>

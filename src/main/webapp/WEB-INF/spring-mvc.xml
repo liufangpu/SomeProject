@@ -54,4 +54,7 @@
 		</property>
 	</bean>
 
+
+	<!--<mvc:default-servlet-handler />
+	<mvc:resources location="/script" mapping="/script/**" />-->
 </beans>

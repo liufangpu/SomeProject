@@ -5,4 +5,6 @@ import nice.liufangpu.project.entity.User; /**
  */
 public interface UserService {
     int saveUser(User user);
+
+    void updateConfig();
 }

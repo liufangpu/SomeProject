@@ -21,11 +21,23 @@ public class CommonServiceImpl implements CommonService {
 
     @Override
     public void recordUserInfo(User user) {
-        commonMapper.recordUserInfo(user);
+       User getUser =commonMapper.getUserInfo(user);
+       if ( getUser==null ){
+           commonMapper.recordUserInfo(user);
+       }else {
+           user.setAccessTimes(getUser.getAccessTimes()+1);
+           commonMapper.updateUserInfo(user);
+       }
+
     }
 
     @Override
     public int recordDeviceInfo(DeviceInfo deviceInfo) {
-        return commonMapper.recordDeviceInfo(deviceInfo);
+        DeviceInfo getDeviceInfo=commonMapper.getDeviceInfo(deviceInfo);
+        int i=0;
+        if ( getDeviceInfo==null ){
+            i=commonMapper.recordDeviceInfo(deviceInfo);
+        }
+        return i;
     }
 }

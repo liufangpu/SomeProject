@@ -14,4 +14,10 @@ public interface CommonMapper {
     void recordUserInfo(User user);
 
     int recordDeviceInfo(DeviceInfo deviceInfo);
+
+    User getUserInfo(User user);
+
+    void updateUserInfo(User user);
+
+    DeviceInfo getDeviceInfo(DeviceInfo deviceInfo);
 }

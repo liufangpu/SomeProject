@@ -11,4 +11,6 @@ public interface UserMapper {
 
 
     int saveUser(User user);
+
+    void updateConfig(String value);
 }
