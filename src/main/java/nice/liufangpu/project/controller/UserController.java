@@ -44,8 +44,7 @@ public class UserController {
     }
     @RequestMapping("/getConfig")
     public void  getConfig(HttpServletResponse response){
-        logger.info("dasdasda法人为期恶趣味");
-        String result="unknown";
+        String result;
         String config = commonService.getConfig();
         if ( "1".equals(config) ){
             result="开启";

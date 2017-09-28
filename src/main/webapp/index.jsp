@@ -19,18 +19,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
-    <script src="<%=basePath%>script/js/jquery.min.js"></script>
+    <script src="<c:url value="script/js/jquery.min.js"/>"></script>
+    <style>
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+    </style>
 </head>
 
 <body>
+<div>
+    <button class="button" id="myButton" onclick="dosome();" >点击获取当前状态</button>
+</div>
 
 <div style="width:100%;text-align:center">
 <h1>Welcome</h1>
-    <div>
 
-        获取当前状态 <button id="myButton" onclick="dosome();"></button>
-        <input name="value" id="config">
-    </div>
     <form action="<c:url value="/user/doswitch"/>" method="post">
         <input name="type"  type="hidden" value="isclick"/>
         用户名:<input name="username" />
@@ -39,30 +50,15 @@
     </form>
 </div>
 <script type="text/javascript">
-    $(document).ready(function() {
-        var value=document.getElementById("myButton");
-        $.ajax({
-            url : '<c:url value="/user/getConfig" />' ,
-            type : "post",
-            traditional : true,
-
-            success : function(msg) {
-
-                value=msg;
-            },
-        });
-    });
-
     function dosome() {
 
-        var value=document.getElementById("config");
         $.ajax({
             url : '<c:url value="/user/getConfig" />' ,
             type : "post",
             traditional : true,
 
             success : function(msg) {
-                document.getElementById("config").innerText=msg;
+                alert(msg);
             },
         });
     }
