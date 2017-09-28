@@ -20,6 +20,8 @@
     <typeAliases>
         <typeAlias alias="User"
                    type="nice.liufangpu.project.entity.User" />
+        <typeAlias alias="DeviceInfo"
+                   type="nice.liufangpu.project.entity.DeviceInfo" />
 
     </typeAliases>
 

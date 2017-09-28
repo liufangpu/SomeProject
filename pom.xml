@@ -112,8 +112,11 @@
       <artifactId>spring-jdbc</artifactId>
       <version>${spring.version}</version>
     </dependency>
-
-
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.4</version>
+    </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
@@ -308,7 +311,7 @@
 
   </dependencies>
   <build>
-    <finalName>SomeProject</finalName>
+    <finalName>some_project</finalName>
 
     <filters>
       <filter>src/main/filters/filter-${env}.properties</filter>
@@ -353,7 +356,7 @@
             9966
           </stopPort>
           <webAppConfig>
-            <contextPath>/gmtool_tank</contextPath>
+            <contextPath>/someproject</contextPath>
           </webAppConfig>
         </configuration>
       </plugin>

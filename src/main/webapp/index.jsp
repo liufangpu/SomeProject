@@ -14,16 +14,7 @@
 <body>
 
 <div style="width:100%;text-align:center">
-<form action="<c:url value="/user/saveInfo"/>" method="post">
-    <input type="text" name="telephone" placeholder="账户名(电话号码)" size="30" /><br/><br/>
-
-    <input type="text" name="uid" placeholder="游戏id" size="30" /><br/><br/>
-    <input type="text" name="name" placeholder="姓名" size="30"/><br/><br/>
-    <input type="text" name="region" placeholder="地区" size="30"/><br/><br/>
-    <input type="text" name="nickname" placeholder="昵称" size="30"/><br/><br/>
-    <input type="text" name="amount" placeholder="亏损金额" size="30"/><br/>
-    <input type="submit" value="提交">
-</form>
+<h1>Welcome</h1>
 </div>
 </body>
 </html>

@@ -11,6 +11,24 @@ public class User {
     private Integer uid;
     private String amount;
     private String region;
+    private String ip;
+    private String hhId;
+
+    public String getHhId() {
+        return hhId;
+    }
+
+    public void setHhId(String hhId) {
+        this.hhId = hhId;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
 
     public Integer getId() {
         return id;
