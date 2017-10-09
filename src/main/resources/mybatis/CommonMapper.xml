@@ -24,7 +24,7 @@
             UPDATE user SET access_times=#{accessTimes} where hhId=#{hhId}
         </if>
     </update>
-    <select id="getDeviceInfo" parameterType="DeviceInfo">
+    <select id="getDeviceInfo" parameterType="DeviceInfo" resultType="nice.liufangpu.project.entity.DeviceInfo">
         <if test="hhId != null">
             SELECT * FROM deviceinfo WHERE hh_id=#{hhId}
         </if>
