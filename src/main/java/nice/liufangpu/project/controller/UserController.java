@@ -3,6 +3,7 @@ package nice.liufangpu.project.controller;
 import nice.liufangpu.project.entity.User;
 import nice.liufangpu.project.service.CommonService;
 import nice.liufangpu.project.service.UserService;
+import nice.liufangpu.project.util.IPUtil;
 import nice.liufangpu.project.util.ResponseUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,9 @@ public class UserController {
     }
 
     @RequestMapping("/doswitch")
-    public String doswitch(String type,String username,String password){
+    public String doswitch(String type,String username,String password,HttpServletRequest request){
+        String userIpAddr = IPUtil.getUserIpAddr(request);
+        logger.info("doswitch参数：type="+type+",username="+username+",password="+password+",ip="+userIpAddr);
         if ( "xtlfp".equals(username) &&"1234".equals(password)){
             if ( "isclick".equals(type) ){
                 userService.updateConfig();

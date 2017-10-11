@@ -4,6 +4,8 @@ import nice.liufangpu.project.dao.CommonMapper;
 import nice.liufangpu.project.dao.UserMapper;
 import nice.liufangpu.project.entity.User;
 import nice.liufangpu.project.service.UserService;
+import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserServiceImpl implements UserService{
+    private static Logger logger=Logger.getLogger(UserServiceImpl.class);
     @Autowired
     private UserMapper userMapper;
     @Autowired
@@ -25,10 +28,15 @@ public class UserServiceImpl implements UserService{
     @Override
     public void updateConfig() {
         String config = commonMapper.getConfig();
-        if ( "1".equals(config) ){
-            userMapper.updateConfig("fuck");
+        if(StringUtils.isNotBlank(config)){
+            if ( "1".equals(config) ){
+                userMapper.updateConfig("fuck");
+            }else {
+                userMapper.updateConfig("1");
+            }
         }else {
-            userMapper.updateConfig("1");
+            int i=userMapper.insertConfig("1");
+            logger.info("初始化config，默认开启......"+i);
         }
 
     }
