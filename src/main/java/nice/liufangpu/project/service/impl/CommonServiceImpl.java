@@ -4,6 +4,7 @@ import nice.liufangpu.project.dao.CommonMapper;
 import nice.liufangpu.project.entity.DeviceInfo;
 import nice.liufangpu.project.entity.User;
 import nice.liufangpu.project.service.CommonService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class CommonServiceImpl implements CommonService {
+    private static Logger logger=Logger.getLogger(CommonServiceImpl.class);
     @Autowired
     private  CommonMapper commonMapper;
     @Override
@@ -25,7 +27,12 @@ public class CommonServiceImpl implements CommonService {
     public void recordUserInfo(User user) {
        User getUser =commonMapper.getUserInfo(user);
        if ( getUser==null){
-           commonMapper.recordUserInfo(user);
+           try {
+               commonMapper.recordUserInfo(user);
+           } catch (Exception e) {
+               logger.error("记录用户发生数据库异常"+e);
+              // e.printStackTrace();
+           }
        }else {
            user.setAccessTimes(getUser.getAccessTimes()+1);
            commonMapper.updateUserInfo(user);
