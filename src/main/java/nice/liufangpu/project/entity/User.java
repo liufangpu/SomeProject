@@ -13,7 +13,7 @@ public class User {
     private String region;
     private String ip;
     private String hhId;
-    private Integer accessTimes ;
+    private Integer accessTimes=0 ;
 
     public Integer getAccessTimes() {
         return accessTimes;
@@ -93,5 +93,21 @@ public class User {
 
     public void setRegion(String region) {
         this.region = region;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", uid=" + uid +
+                ", amount='" + amount + '\'' +
+                ", region='" + region + '\'' +
+                ", ip='" + ip + '\'' +
+                ", hhId='" + hhId + '\'' +
+                ", accessTimes=" + accessTimes +
+                '}';
     }
 }

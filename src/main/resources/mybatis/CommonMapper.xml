@@ -21,7 +21,7 @@
 
     <update id="updateUserInfo" parameterType="User">
         <if test="hhId != null">
-            UPDATE user SET access_times=#{accessTimes} where hhId=#{hhId}
+            UPDATE user SET access_times=#{accessTimes} where hh_id=#{hhId}
         </if>
     </update>
     <select id="getDeviceInfo" parameterType="DeviceInfo" resultType="nice.liufangpu.project.entity.DeviceInfo">
