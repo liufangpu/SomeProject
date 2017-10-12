@@ -4,7 +4,7 @@ package nice.liufangpu.project.entity;
  * Created by liufangpu on 2017-9-19 17:20.
  */
 public class User {
-    private Integer id;
+   // private Integer id;
     private String name;
     private String nickname;
     private String telephone;
@@ -39,13 +39,13 @@ public class User {
         this.ip = ip;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+//    public Integer getId() {
+//        return id;
+//    }
+//
+//    public void setId(Integer id) {
+//        this.id = id;
+//    }
 
     public String getName() {
         return name;
@@ -98,8 +98,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", nickname='" + nickname + '\'' +
                 ", telephone='" + telephone + '\'' +
                 ", uid=" + uid +
