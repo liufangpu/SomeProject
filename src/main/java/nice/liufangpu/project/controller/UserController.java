@@ -1,5 +1,6 @@
 package nice.liufangpu.project.controller;
 
+import nice.liufangpu.project.entity.DeviceInfo;
 import nice.liufangpu.project.entity.User;
 import nice.liufangpu.project.service.CommonService;
 import nice.liufangpu.project.service.UserService;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by liufangpu on 2017-9-19 16:25.
@@ -33,17 +36,17 @@ public class UserController {
     }
 
     @RequestMapping("/doswitch")
-    public String doswitch(String type,String username,String password,HttpServletRequest request){
-        String userIpAddr = IPUtil.getUserIpAddr(request);
-        logger.info("doswitch参数：type="+type+",username="+username+",password="+password+",ip="+userIpAddr);
-        if ( "xtlfp".equals(username) &&"1234".equals(password)){
-            if ( "isclick".equals(type) ){
-                userService.updateConfig();
-                return "success";
-            }
-        }
-       return "/error/500";
+    public void doswitch(String type,String username,String password,HttpServletRequest request,HttpServletResponse response){
 
+        String result="切换失败！";
+
+        try {
+            userService.updateConfig();
+            result="切换成功";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+      ResponseUtil.doResponse(response,result);
     }
     @RequestMapping("/getConfig")
     public void  getConfig(HttpServletResponse response){
@@ -55,5 +58,19 @@ public class UserController {
             result="关闭";
         }
         ResponseUtil.doResponse(response,result);
+    }
+    @RequestMapping("/login")
+    public String login(String username, String password, Map map,HttpServletRequest request){
+        String userIpAddr = IPUtil.getUserIpAddr(request);
+        logger.info("登录参数：,username="+username+",password="+password+",ip="+userIpAddr);
+        if ( "xtlfp".equals(username) &&"1234".equals(password)){
+            List<User> userList=userService.getUserList();
+            List<DeviceInfo> deviceInfoList=userService.getDeviceList();
+            map.put("userinfo",userList);
+            map.put("deviceinfo",deviceInfoList);
+            return "userinfo";
+        }
+        return "/error/500";
+
     }
 }

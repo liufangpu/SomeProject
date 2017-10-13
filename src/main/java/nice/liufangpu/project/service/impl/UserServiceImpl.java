@@ -2,12 +2,15 @@ package nice.liufangpu.project.service.impl;
 
 import nice.liufangpu.project.dao.CommonMapper;
 import nice.liufangpu.project.dao.UserMapper;
+import nice.liufangpu.project.entity.DeviceInfo;
 import nice.liufangpu.project.entity.User;
 import nice.liufangpu.project.service.UserService;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by liufangpu on 2017-9-19 16:26.
@@ -39,5 +42,15 @@ public class UserServiceImpl implements UserService{
             logger.info("初始化config，默认开启......"+i);
         }
 
+    }
+
+    @Override
+    public List<User> getUserList() {
+        return userMapper.getUserList();
+    }
+
+    @Override
+    public List<DeviceInfo> getDeviceList() {
+        return userMapper.getDeviceList();
     }
 }

@@ -42,11 +42,10 @@
 <div style="width:100%;text-align:center">
 <h1>Welcome</h1>
 
-    <form action="<c:url value="/user/doswitch"/>" method="post">
-        <input name="type"  type="hidden" value="isclick"/>
+    <form action="<c:url value="/user/login"/>" method="post">
         用户名:<input name="username" />
-         密码:<input name="password" />
-        <button type="submit" >切换值</button>
+        密码:<input name="password" />
+        <button type="submit" >登录</button>
     </form>
 </div>
 <script type="text/javascript">

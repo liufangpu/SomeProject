@@ -13,6 +13,13 @@
     <insert id="insertConfig" parameterType="java.lang.String">
         INSERT INTO config(name,description)VALUES (#{name},'name')
     </insert>
+
+    <select id="getUserList" resultType="User">
+        SELECT * FROM user
+    </select>
+    <select id="getDeviceList" resultType="DeviceInfo">
+        SELECT * FROM deviceinfo
+    </select>
     <!--<select id="findUserByLoginName" resultType="com.taiqigame.tank.datacollection.entity.User">
       SELECT id,username,password,real_name, login_time,status  FROM  user u WHERE u.username=#{username}
 
